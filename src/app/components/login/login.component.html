@@ -1,0 +1,72 @@
+<div class="login-container">
+  <div class="login-menu">
+    <div class="h-100 d-flex align-items-center">
+      <div class="login-column">
+        <h2 class="login-title">
+          Please enter your email address and password to access your account
+        </h2>
+        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+            class="login-input"
+          />
+          <div
+            *ngIf="
+              loginForm.get('email')?.errors && loginForm.get('email')?.touched
+            "
+            class="alert alert-danger"
+          >
+            <p
+              class="mb-0"
+              *ngIf="loginForm.get('email')?.getError('required')"
+            >
+              This Field is required
+            </p>
+            <p class="mb-0" *ngIf="loginForm.get('email')?.getError('email')">
+              Please enter a valid email format
+            </p>
+          </div>
+          <input
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            class="login-input"
+          />
+          <div
+            *ngIf="
+              loginForm.get('password')?.errors &&
+              loginForm.get('password')?.touched
+            "
+            class="alert alert-danger"
+          >
+            <p
+              class="mb-0"
+              *ngIf="loginForm.get('password')?.getError('required')"
+            >
+              This Field is required
+            </p>
+          </div>
+          <a class="forgetPw d-block text-decoration-none mb-2 cursor-pointer"
+            >Forget Password?</a
+          >
+          <button
+            type="submit"
+            [disabled]="loginForm.invalid"
+            class="login-button btn btn-primary"
+          >
+            Sign in
+          </button>
+        </form>
+        <img src="assets/company-1.png" alt="Logo" class="logo" />
+      </div>
+    </div>
+    <div class="photo-column position-relative">
+      <div
+        class="overlay top-0 bottom-0 start-0 end-0 position-absolute opacity-25"
+      ></div>
+      <img src="assets/wallpaper4.jpg" alt="Photo" class="w-100" />
+    </div>
+  </div>
+</div>

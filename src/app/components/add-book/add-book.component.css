@@ -1,0 +1,68 @@
+form {
+  background-color: white;
+  padding: 20px;
+}
+
+input,
+textarea {
+  background-color: aliceblue;
+}
+
+.book + p {
+  color: grey;
+  font-size: 10px;
+}
+.book {
+  font-size: 10rem;
+  color: gainsboro;
+}
+.file-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.file-input {
+  position: absolute;
+  left: -9999px;
+  display: block;
+}
+
+.file-label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.file-label:hover {
+  border-color: #666;
+}
+
+.file-icon {
+  display: block;
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.goBackArror {
+  color: var(--muted-color);
+  cursor: pointer;
+}
+.goBackArror:hover {
+  color: gray;
+}
+.file-text {
+  display: block;
+  color: #666;
+}
+
+.file-input::file-selector-button-text {
+  color: #666;
+}
+.title-muted {
+  color: var(--muted-color);
+  font-size: 28px;
+}

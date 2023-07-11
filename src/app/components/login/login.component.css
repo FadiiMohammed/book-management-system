@@ -1,0 +1,66 @@
+body {
+  background-color: rgb(245, 248, 255);
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-menu {
+  display: flex;
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.login-column {
+  flex: 1;
+  padding: 40px;
+}
+
+.login-title {
+  color: black;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.login-button {
+  padding: 12px;
+  background-color: rgb(8, 77, 211);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logo {
+  margin-top: 20px;
+}
+.forgetPw {
+  cursor: pointer;
+}
+.photo-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+}
+.overlay {
+  background-image: linear-gradient(to right, blue, red);
+}

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+:root {
+  --main-color: rgb(8, 77, 211);
+  --green-color: rgb(87, 182, 111);
+  --violet-color: rgb(177, 112, 160);
+  --red-color: rgb(174, 1, 29);
+  --muted-color: rgb(98, 102, 105);
+  --bg-color: rgb(245, 248, 255);
+}
+body {
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
+}
+.deleteBtn {
+  background-color: var(--red-color);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.title-muted {
+  color: var(--muted-color);
+  font-size: 32px;
+}

@@ -1,0 +1,58 @@
+<section class="p-4 col-md-12">
+  <div class="cursor-pointer">
+    <a class="goBackArror text-decoration-none" routerLink="/dashboard/">
+      <i class="fa-solid fs-5 fa-arrow-left"> </i>
+    </a>
+    <h2 class="text-muted">Books Details</h2>
+  </div>
+  <div class="bg-white p-3">
+    <div class="row justify-content-between mb-5">
+      <div class="col-md-4 d-flex justify-content-between align-items-center">
+        <img src="assets/bookCover3.jpg" class="w-50" alt="Book Cover" />
+        <div class="d-flex flex-column justify-content-start w-100">
+          <h3 class="fw-bold text-center">{{ book.bookTitle }}</h3>
+          <div class="d-flex justify-content-around">
+            <div class="d-flex flex-column justify-content-between">
+              <span class="bookPages">478</span>
+              <span class="text-muted">pages</span>
+            </div>
+            <div class="d-flex flex-column justify-content-between">
+              <span class="bookHours">12h</span>
+              <span class="text-muted">to read</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex justify-content-end h-25">
+        <button (click)="deleteBook(book.id)" class="btn btn-danger ms-1 me-1">
+          Delete
+        </button>
+        <button (click)="editBook(book.id)" class="btn btn-primary ms-1">
+          Edit
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-between">
+        <div class="col-md-6">
+          <p class="text-muted h5">
+            <span class="fw-bold">By: </span>
+            <span>{{ book.bookAuthor }}</span> |
+            <span>{{ book.bookReleaseDate }}</span>
+          </p>
+          <p class="fw-bold text-success h5">{{ book.bookPrice | currency }}</p>
+          <p class="text-muted">
+            <span class="fw-bold">ISBN:</span> {{ book.bookISBN }}
+          </p>
+          <p class="text-muted">
+            <span class="fw-bold">Version: </span>{{ book.bookVersion }}
+          </p>
+        </div>
+        <div class="brief col-md-6">
+          <h3>Brief</h3>
+          <p>{{ book.bookBrief }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

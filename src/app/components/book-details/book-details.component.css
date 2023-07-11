@@ -1,0 +1,33 @@
+.bookPages,
+.bookHours {
+  color: rgb(52, 80, 124);
+  font-size: 22px;
+  font-weight: 600;
+}
+.goBackArror {
+  color: var(--muted-color);
+  cursor: pointer;
+}
+.goBackArror:hover {
+  color: gray;
+}
+.brief {
+  margin: 20px 0;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.brief h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.brief p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #555;
+}

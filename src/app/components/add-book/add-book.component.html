@@ -1,0 +1,197 @@
+<section class="p-4">
+  <div class="cursor-pointer">
+    <a class="goBackArror text-decoration-none" routerLink="/dashboard/">
+      <i class="fa-solid fs-5 fa-arrow-left"> </i>
+    </a>
+    <h2 *ngIf="!selectedBook" class="title-muted">Add Book</h2>
+    <h2 *ngIf="selectedBook" class="title-muted">Update Book</h2>
+  </div>
+  <div>
+    <form [formGroup]="saveBookForm" (ngSubmit)="save(saveBookForm)">
+      <div class="row bg-white">
+        <div class="col-md-6">
+          <input
+            type="text"
+            placeholder="Book Title*"
+            formControlName="bookTitle"
+            class="form-control mb-3"
+          />
+          <p
+            *ngIf="
+              saveBookForm.get('bookTitle')?.errors &&
+              saveBookForm.get('bookTitle')?.touched
+            "
+            class="text-danger"
+          >
+            Book Title is required
+          </p>
+
+          <input
+            type="text"
+            placeholder="Book Author*"
+            formControlName="bookAuthor"
+            class="form-control mb-3"
+          />
+          <p
+            *ngIf="
+              saveBookForm.get('bookAuthor')?.errors &&
+              saveBookForm.get('bookAuthor')?.touched
+            "
+            class="text-danger"
+          >
+            Book Author is required
+          </p>
+
+          <input
+            type="text"
+            placeholder="Categories*"
+            formControlName="categories"
+            class="form-control mb-3"
+          />
+          <p
+            *ngIf="
+              saveBookForm.get('categories')?.errors &&
+              saveBookForm.get('categories')?.touched
+            "
+            class="text-danger"
+          >
+            Categories is required
+          </p>
+
+          <input
+            type="number"
+            placeholder="Book Price*"
+            formControlName="bookPrice"
+            class="form-control mb-3"
+          />
+          <p
+            *ngIf="
+              saveBookForm.get('bookPrice')?.errors &&
+              saveBookForm.get('bookPrice')?.touched
+            "
+            class="text-danger"
+          >
+            Book Price is required
+          </p>
+
+          <input
+            type="number"
+            placeholder="Book Version*"
+            formControlName="bookVersion"
+            class="form-control mb-3"
+          />
+          <p
+            *ngIf="
+              saveBookForm.get('bookVersion')?.errors &&
+              saveBookForm.get('bookVersion')?.touched
+            "
+            class="text-danger"
+          >
+            Book Version is required
+          </p>
+
+          <input
+            type="number"
+            placeholder="Book Older Version"
+            formControlName="bookVersion"
+            class="form-control mb-3"
+          />
+
+          <input
+            type="number"
+            placeholder="Book Edition"
+            formControlName="bookEdition"
+            class="form-control mb-3"
+          />
+
+          <input
+            type="number"
+            placeholder="Book ISBN*"
+            formControlName="bookISBN"
+            class="form-control mb-3"
+          />
+          <p
+            *ngIf="
+              saveBookForm.get('bookISBN')?.errors &&
+              saveBookForm.get('bookISBN')?.touched
+            "
+            class="text-danger"
+          >
+            Book ISBN is required
+          </p>
+
+          <input
+            type="date"
+            placeholder="Book Release Date*"
+            formControlName="bookReleaseDate"
+            class="form-control mb-3"
+          />
+        </div>
+        <div class="col-md-6 d-flex flex-column align-items-center">
+          <div
+            class="d-flex flex-column justify-content-center"
+            *ngIf="!imagePreview"
+          >
+            <i class="fa-solid book fa-book mb-3"></i>
+            <p class="">Best dimensions for book cover images are 128*200</p>
+          </div>
+
+          <img
+            [src]="imagePreview"
+            class="w-50 mb-3"
+            *ngIf="imagePreview"
+            alt="Preview"
+          />
+          <div class="file-input-wrapper mb-3">
+            <input
+              type="file"
+              class="file-input"
+              id="fileInput"
+              formControlName="uploadCover"
+              accept="image/*"
+              (change)="onFileSelected($event)"
+            />
+            <label for="fileInput" class="file-label">
+              <span class="file-icon"
+                ><i class="fas fa-cloud-upload-alt"></i
+              ></span>
+              <span class="file-text">Choose a file</span>
+            </label>
+          </div>
+
+          <textarea
+            formControlName="bookBrief"
+            class="form-control mb-3"
+            placeholder="Book brief*"
+            cols="70"
+            rows="5"
+          ></textarea>
+          <div class="d-flex justify-content-end w-100">
+            <a
+              (click)="cancel()"
+              routerLink="/dashboard/bookList"
+              class="btn btn-secondary me-2"
+              >Cancel</a
+            >
+            <button
+              (click)="updateBook()"
+              *ngIf="selectedBook"
+              type="submit"
+              class="btn btn-warning"
+            >
+              Update
+            </button>
+            <button
+              *ngIf="!selectedBook"
+              type="submit"
+              [disabled]="saveBookForm.invalid"
+              class="btn btn-primary"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

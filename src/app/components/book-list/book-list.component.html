@@ -1,0 +1,68 @@
+<section class="position-relative p-4">
+  <h2 class="title-muted">Books</h2>
+  <div class="mb-3">
+    <div class="search-container d-flex justify-content-between">
+      <input
+        type="text"
+        class="form-control search-input"
+        placeholder="Search By name"
+        [(ngModel)]="searchValue"
+      />
+      <button class="btn btn-primary">
+        <a
+          class="text-decoration-none text-white"
+          routerLink="/dashboard/addBook"
+          >+ Add Book</a
+        >
+      </button>
+    </div>
+  </div>
+
+  <div class="tableContainer">
+    <table id="table" class="table bg-white text-center">
+      <thead>
+        <th>Book Title</th>
+        <th>Book Category</th>
+        <th>Book Author</th>
+        <th>Book ISBN</th>
+        <th>Book Version</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of getDisplayedBooks() | search : searchValue">
+          <td>{{ book.bookTitle }}</td>
+          <td>{{ book.categories }}></td>
+          <td>{{ book.bookAuthor }}</td>
+          <td>{{ book.bookISBN }}</td>
+          <td>{{ book.bookVersion }}</td>
+          <td>
+            <div class="actionIcons d-flex justify-content-between">
+              <a [routerLink]="['/dashboard/bookDetails', book.id]">
+                <i class="fa-solid text-primary fa-eye"></i>
+              </a>
+
+              <button (click)="editBook(book.id)">
+                <i class="fa-solid text-success fa-pencil"></i>
+              </button>
+
+              <button (click)="deleteBook(book.id)">
+                <i class="trash fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 *ngIf="!books.length" class="text-danger d-block text-center">
+      There is no Books..
+    </h2>
+    <p-paginator
+      *ngIf="books.length"
+      [totalRecords]="books.length"
+      [rows]="itemsPerPage"
+      [first]="(currentPage - 1) * itemsPerPage"
+      (onPageChange)="onPageChange($event)"
+    ></p-paginator>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+.side-menu {
+  height: 100vh;
+  background-color: white;
+}
+
+.logo {
+  text-align: center;
+}
+.logo img {
+  margin-bottom: 20px;
+}
+
+.keyword-wrapper {
+  width: 100%;
+  background-color: rgb(245, 248, 255);
+  padding: 20px 10px;
+  margin-top: 20px;
+  border-right: solid 3px var(--violet-color);
+}
+
+.keyword {
+  color: black;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .side-menu {
+    display: none;
+  }
+}
